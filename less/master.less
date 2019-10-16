@@ -1,6 +1,8 @@
 /* Global */
 .flex { display: flex; align-items: center; justify-content: center; }
 .full { height: 100%; width: 100%; }
+.round(@input) { border-radius: @input; }
+.hide { display: none; }
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -28,6 +30,19 @@ main {
   canvas {
     width: 600px;
     height: 600px;
+    position: relative;
+  }
+  div {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    &:extend(.flex);
+    border: 2px solid black;
+    background-color: white;
+    .round(20px);
+    button {
+      padding: 10px;
+    }
   }
 }
 /* Aside */

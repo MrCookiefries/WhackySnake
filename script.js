@@ -1,6 +1,8 @@
 // Main Variables
 const canvas = document.querySelector("#game");
 const ctx = canvas.getContext("2d");
+const divElem = document.getElementById("btn-wrapper");
+const buttonElem = document.getElementById("play-btn");
 const colors = {
   snakeFill: "green",
   snakeOutline: "darkgreen",
@@ -34,6 +36,7 @@ let snake = [{
 let scoreNum = 0;
 let score = document.querySelector("#score");
 let turning = false;
+let key;
 let apple = {
   x: 0,
   y: 0
@@ -43,6 +46,7 @@ let velocity = {
   y: 0
 }
 document.addEventListener('keydown', turn);
+buttonElem.addEventListener("click", start);
 // Helper Functions
 function resetDisplay() {
   ctx.strokeStyle = colors.gameOutline;
@@ -98,9 +102,9 @@ function newApple() {
 }
 
 function showSnake() {
-  ctx.fillStyle = colors.snakeFill;
-  ctx.strokeStyle = colors.snakeOutline;
   snake.forEach(part => {
+    ctx.fillStyle = colors.snakeFill;
+    ctx.strokeStyle = colors.snakeOutline;
     ctx.fillRect(part.x, part.y, 10, 10);
     ctx.strokeRect(part.x, part.y, 10, 10);
   })
@@ -130,9 +134,10 @@ function turn(event) {
 
 function play() {
   if (crashed()) {
+    end();
     return;
   }
-  setTimeout(() => {
+  key = setTimeout(() => {
     turning = false;
     resetDisplay();
     showApple();
@@ -143,6 +148,44 @@ function play() {
 }
 
 function start() {
+  divElem.classList.add("hide");
   play();
   newApple();
+}
+
+function end() {
+  clearTimeout(key);
+  divElem.classList.remove("hide");
+  speed = 100;
+  snake = [{
+      x: 150,
+      y: 150
+    },
+    {
+      x: 140,
+      y: 150
+    },
+    {
+      x: 130,
+      y: 150
+    },
+    {
+      x: 120,
+      y: 150
+    },
+    {
+      x: 110,
+      y: 150
+    }
+  ]
+  scoreNum = 0;
+  turning = false;
+  apple = {
+    x: 0,
+    y: 0
+  }
+  velocity = {
+    x: 10,
+    y: 0
+  }
 }
