@@ -9,25 +9,40 @@
   <body>
     <header>
       <h1>Score: <span id="score">0</span></h1>
+      <h1>High Score: <span id="high-score">0</span></h1>
     </header>
     <main>
-      <canvas id="game" width="600" height="600"></canvas>
+      <canvas id="game" width="300" height="300"></canvas>
       <div id="btn-wrapper">
         <button id="play-btn" type="button">Play</button>
+        <label>Small<input id="small" type="radio" required name="size" value="300"></label>
+        <label>Medium<input id="medium" type="radio" checked name="size" value="600"></label>
+        <label>Large<input id="large" type="radio" name="size" value="900"></label>
       </div>
     </main>
     <aside>
-      <h2>Directions</h2>
-      <ul>
-        <li>Use arrow keys to move</li>
-        <li>Don't run into yourself</li>
-        <li>Don't run into the walls</li>
-        <li>Eat the apples and grow bigger</li>
-      </ul>
+      <div>
+        <h2>Directions</h2>
+        <ul>
+          <li>Use arrow keys or WASD to move</li>
+          <li>Don't run into yourself</li>
+          <li>Don't run into the walls</li>
+          <li>Eat the apples and grow bigger</li>
+        </ul>
+      </div>
+      <div>
+        <h2>Notes</h2>
+        <ul>
+          <li>Red squares are apples</li>
+          <li>Blue squares are speed-ups</li>
+          <li>Yellow squares are slow-downs</li>
+          <li>Pink squares are double points</li>
+        </ul>
+      </div>
     </aside>
     <footer>
-      <small>Version 1.0</small>
-      <small>Updated 10/16/19</small>
+      <small>Version 1.1</small>
+      <small>Updated 10/19/19</small>
     </footer>
     <script src="./script.js" charset="utf-8"></script>
   </body>

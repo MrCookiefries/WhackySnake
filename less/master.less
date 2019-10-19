@@ -22,6 +22,7 @@ header {
     text-transform: uppercase;
     font-weight: 700;
     text-align: center;
+    margin: 0 20px;
   }
 }
 /* Main */
@@ -40,25 +41,51 @@ main {
     border: 2px solid black;
     background-color: white;
     .round(20px);
+    flex-direction: column;
     button {
       padding: 10px;
+    }
+    label {
+      margin-top: 10px;
     }
   }
 }
 /* Aside */
 aside {
   padding: 10px;
-  ul {
-    li {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  div {
+    h2 {
+
+    }
+    ul {
+      text-align: left;
+      li {
+        list-style: none;
+      }
+    }
+  }
+  div:nth-child(2) {
+    h2 {
+      text-align: right;
+    }
+    ul {
+      li {
+        text-align: right;
+      }
     }
   }
 }
 /* Footer */
 footer {
+  padding: 10px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
   small {
-    margin: 10px;
+
   }
   small:nth-child(2) {
     text-align: right;
