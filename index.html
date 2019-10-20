@@ -4,6 +4,7 @@
     <meta name="viewport" content= "width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <title>Whacky Snake</title>
+    <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville|Merienda|PT+Sans+Narrow&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/master.min.css" type="text/css">
   </head>
   <body>
@@ -13,36 +14,39 @@
     </header>
     <main>
       <canvas id="game" width="300" height="300"></canvas>
-      <div id="btn-wrapper">
-        <button id="play-btn" type="button">Play</button>
-        <label>Small<input id="small" type="radio" required name="size" value="300"></label>
-        <label>Medium<input id="medium" type="radio" checked name="size" value="600"></label>
-        <label>Large<input id="large" type="radio" name="size" value="900"></label>
-      </div>
+      <section id="btn-wrapper">
+        <div>
+          <button id="play-btn" type="button">Play</button>
+          <label>Small&emsp;<input id="small" type="radio" checked name="size" value="300"></label>
+          <label>Medium&emsp;<input id="medium" type="radio" name="size" value="600"></label>
+          <label>Large&emsp;<input id="large" type="radio" name="size" value="900"></label>
+        </div>
+      </section>
     </main>
     <aside>
       <div>
         <h2>Directions</h2>
         <ul>
-          <li>Use arrow keys or WASD to move</li>
-          <li>Don't run into yourself</li>
-          <li>Don't run into the walls</li>
-          <li>Eat the apples and grow bigger</li>
+          <li><span>&#8680;</span>Use arrow keys or WASD to move</li>
+          <li><span>&#8680;</span>Don't run into yourself</li>
+          <li><span>&#8680;</span>Don't run into the walls</li>
+          <li><span>&#8680;</span>Eat the apples and grow bigger</li>
         </ul>
       </div>
       <div>
         <h2>Notes</h2>
         <ul>
-          <li>Red squares are apples</li>
-          <li>Blue squares are speed-ups</li>
-          <li>Yellow squares are slow-downs</li>
-          <li>Pink squares are double points</li>
+          <li><span>&#8680;</span>Apples are red</li>
+          <li><span>&#8680;</span>Speed-ups are blue</li>
+          <li><span>&#8680;</span>Slow-downs are yellow</li>
+          <li><span>&#8680;</span>Double points are pink</li>
         </ul>
       </div>
     </aside>
+    <hr>
     <footer>
-      <small>Version 1.1</small>
-      <small>Updated 10/19/19</small>
+      <small>Version 1.2</small>
+      <small>Updated 10/20/19</small>
     </footer>
     <script src="./script.js" charset="utf-8"></script>
   </body>

@@ -11,9 +11,7 @@ const colors = {
   gameFill: "hsla(0, 0%, 100%, 1)",
   gameOutline: "hsla(0, 0%, 0%, 1)",
   speedupFill: "hsla(240, 80%, 60%, 1)",
-  speedupOutline: "hsla(240, 80%, 20%, 1)",
   slowdownFill: "hsla(60, 80%, 60%, 1)",
-  slowdownOutline: "hsla(60, 80%, 20%, 1)",
   doublePointsFill: "hsla(330, 80%, 60%, 1)",
   doublePointsOutline: "hsla(330, 80%, 20%, 1)"
 }
@@ -66,6 +64,12 @@ let velocity = {
   x: 10,
   y: 0
 }
+// Prevent Controls Scrolling
+window.addEventListener("keydown", function(e) {
+  if ([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+    e.preventDefault();
+  }
+}, false);
 document.addEventListener('keydown', turn);
 buttonElem.addEventListener("click", start);
 // Helper Functions
@@ -78,31 +82,76 @@ function resetDisplay() {
 resetDisplay();
 
 function showApple() {
-  ctx.strokeStyle = colors.appleOutline;
   ctx.fillStyle = colors.appleFill;
-  ctx.fillRect(apple.x, apple.y, 10, 10);
-  ctx.strokeRect(apple.x, apple.y, 10, 10);
+  ctx.fillRect(apple.x, apple.y + 5, 1, 3);
+  ctx.fillRect(apple.x + 1, apple.y + 3, 1, 6);
+  ctx.fillRect(apple.x + 2, apple.y + 2, 1, 7);
+  ctx.fillRect(apple.x + 3, apple.y + 2, 1, 8);
+  ctx.fillRect(apple.x + 4, apple.y + 3, 2, 7);
+  ctx.fillRect(apple.x + 9, apple.y + 5, 1, 3);
+  ctx.fillRect(apple.x + 8, apple.y + 3, 1, 6);
+  ctx.fillRect(apple.x + 7, apple.y + 2, 1, 7);
+  ctx.fillRect(apple.x + 6, apple.y + 2, 1, 8);
+  ctx.fillStyle = colors.appleOutline;
+  ctx.fillRect(apple.x + 5, apple.y + 1, 1, 2);
+  ctx.fillRect(apple.x + 4, apple.y + 1, 1, 1);
+  ctx.fillStyle = colors.snakeOutline;
+  ctx.fillRect(apple.x + 3, apple.y, 1, 1);
+  ctx.fillStyle = colors.snakeFill;
+  ctx.fillRect(apple.x + 2, apple.y, 1, 1);
 }
 
 function showSpeedup() {
-  ctx.strokeStyle = colors.speedupOutline;
   ctx.fillStyle = colors.speedupFill;
-  ctx.fillRect(speedup.x, speedup.y, 10, 10);
-  ctx.strokeRect(speedup.x, speedup.y, 10, 10);
+  ctx.fillRect(speedup.x, speedup.y + 3, 1, 4);
+  ctx.fillRect(speedup.x + 1, speedup.y + 2, 1, 6);
+  ctx.fillRect(speedup.x + 2, speedup.y + 1, 1, 8);
+  ctx.fillRect(speedup.x + 3, speedup.y, 4, 10);
+  ctx.fillRect(speedup.x + 9, speedup.y + 3, 1, 4);
+  ctx.fillRect(speedup.x + 8, speedup.y + 2, 1, 6);
+  ctx.fillRect(speedup.x + 7, speedup.y + 1, 1, 8);
+  ctx.fillStyle = colors.gameOutline;
+  ctx.fillRect(speedup.x + 2, speedup.y + 4, 1, 1);
+  ctx.fillRect(speedup.x + 3, speedup.y + 3, 1, 2);
+  ctx.fillRect(speedup.x + 4, speedup.y + 2, 2, 6);
+  ctx.fillRect(speedup.x + 7, speedup.y + 4, 1, 1);
+  ctx.fillRect(speedup.x + 6, speedup.y + 3, 1, 2);
 }
 
 function showSlowdown() {
-  ctx.strokeStyle = colors.slowdownOutline;
   ctx.fillStyle = colors.slowdownFill;
-  ctx.fillRect(slowdown.x, slowdown.y, 10, 10);
-  ctx.strokeRect(slowdown.x, slowdown.y, 10, 10);
+  ctx.fillRect(slowdown.x, slowdown.y + 3, 1, 4);
+  ctx.fillRect(slowdown.x + 1, slowdown.y + 2, 1, 6);
+  ctx.fillRect(slowdown.x + 2, slowdown.y + 1, 1, 8);
+  ctx.fillRect(slowdown.x + 3, slowdown.y, 4, 10);
+  ctx.fillRect(slowdown.x + 9, slowdown.y + 3, 1, 4);
+  ctx.fillRect(slowdown.x + 8, slowdown.y + 2, 1, 6);
+  ctx.fillRect(slowdown.x + 7, slowdown.y + 1, 1, 8);
+  ctx.fillStyle = colors.gameOutline;
+  ctx.fillRect(slowdown.x + 2, slowdown.y + 5, 1, 1);
+  ctx.fillRect(slowdown.x + 3, slowdown.y + 5, 1, 2);
+  ctx.fillRect(slowdown.x + 4, slowdown.y + 2, 2, 6);
+  ctx.fillRect(slowdown.x + 7, slowdown.y + 5, 1, 1);
+  ctx.fillRect(slowdown.x + 6, slowdown.y + 5, 1, 2);
 }
 
 function showDoublePoints() {
-  ctx.strokeStyle = colors.doublePointsOutline;
   ctx.fillStyle = colors.doublePointsFill;
-  ctx.fillRect(doublePoints.x, doublePoints.y, 10, 10);
-  ctx.strokeRect(doublePoints.x, doublePoints.y, 10, 10);
+  ctx.fillRect(doublePoints.x, doublePoints.y + 3, 1, 4);
+  ctx.fillRect(doublePoints.x + 1, doublePoints.y + 2, 1, 6);
+  ctx.fillRect(doublePoints.x + 2, doublePoints.y + 1, 1, 8);
+  ctx.fillRect(doublePoints.x + 3, doublePoints.y, 4, 10);
+  ctx.fillRect(doublePoints.x + 9, doublePoints.y + 3, 1, 4);
+  ctx.fillRect(doublePoints.x + 8, doublePoints.y + 2, 1, 6);
+  ctx.fillRect(doublePoints.x + 7, doublePoints.y + 1, 1, 8);
+  ctx.fillStyle = colors.doublePointsOutline;
+  ctx.fillRect(doublePoints.x + 2, doublePoints.y + 2, 2, 2);
+  ctx.fillRect(doublePoints.x + 2, doublePoints.y + 6, 2, 2);
+  ctx.fillRect(doublePoints.x + 3, doublePoints.y + 3, 4, 4);
+  ctx.fillRect(doublePoints.x + 6, doublePoints.y + 2, 2, 2);
+  ctx.fillRect(doublePoints.x + 6, doublePoints.y + 6, 2, 2);
+  ctx.fillStyle = colors.gameFill;
+  ctx.fillRect(doublePoints.x + 4, doublePoints.y + 4, 2, 2);
 }
 
 function snakeMove() {
@@ -250,9 +299,23 @@ function hidePowerup(powerup) {
 }
 
 function showSnake() {
+  let i = true;
   snake.forEach(part => {
-    ctx.fillStyle = colors.snakeFill;
     ctx.strokeStyle = colors.snakeOutline;
+    if (i) {
+      ctx.fillStyle = colors.appleFill;
+      if (velocity.x === -10 && velocity.y === 0) {
+        ctx.fillRect(part.x - 4, part.y + 4, 4, 2);
+      } else if (velocity.x === 0 && velocity.y === -10) {
+        ctx.fillRect(part.x + 4, part.y - 4, 2, 4);
+      } else if (velocity.x === 10 && velocity.y === 0) {
+        ctx.fillRect(part.x + 10, part.y + 4, 4, 2);
+      } else if (velocity.x === 0 && velocity.y === 10) {
+        ctx.fillRect(part.x + 4, part.y + 10, 2, 4);
+      }
+      i = false;
+    }
+    ctx.fillStyle = colors.snakeFill;
     ctx.fillRect(part.x, part.y, 10, 10);
     ctx.strokeRect(part.x, part.y, 10, 10);
   })

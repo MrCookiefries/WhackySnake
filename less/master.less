@@ -3,73 +3,155 @@
 .full { height: 100%; width: 100%; }
 .round(@input) { border-radius: @input; }
 .hide { display: none; }
+@colors: {
+  blue: hsla(184, 75%, 70%, 1);
+  yellow: hsla(64, 75%, 70%, 1);
+  pink: hsla(307, 75%, 70%, 1);
+}
+@text: {
+  title: 'Merienda', cursive;
+  subtitle: 'Libre Baskerville', serif;
+  paragraph: 'PT Sans Narrow', sans-serif;
+}
 *, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 body {
-  height: 100vh;
-  width: 100vw;
-  display: grid;
-  grid-template-rows: 1fr 3fr 1fr 1fr;
+  font-family: @text[paragraph];
+  background-image: linear-gradient(-45deg, @colors[blue], @colors[yellow], @colors[pink]);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+/* Keyframes */
+@keyframes arrows {
+  0%, 100% {
+    transform: translateX(-4px);
+  }
+  50% {
+    transform: translateX(4px);
+  }
 }
 /* Header */
 header {
-  &:extend(.flex);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
   h1 {
     font-size: 36px;
     text-transform: uppercase;
     font-weight: 700;
-    text-align: center;
-    margin: 0 20px;
+    text-align: left;
+    padding: 10px;
+    font-family: @text[title];
+    display: inline-block;
+  }
+  h1:nth-child(2) {
+    text-align: right;
   }
 }
 /* Main */
 main {
   &:extend(.flex);
+  position: relative;
   canvas {
     width: 600px;
     height: 600px;
-    position: relative;
-  }
-  div {
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    &:extend(.flex);
     border: 2px solid black;
-    background-color: white;
+  }
+  section {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: linear-gradient(225deg, @colors[blue], @colors[yellow], @colors[pink]);
     .round(20px);
-    flex-direction: column;
-    button {
-      padding: 10px;
-    }
-    label {
-      margin-top: 10px;
+    padding: 10px;
+    div {
+      width: 200px;
+      height: 200px;
+      margin: auto 0;
+      &:extend(.flex);
+      background-color: white;
+      flex-direction: column;
+      .round(20px);
+      background-color: black;
+      button {
+        padding: 10px;
+        font-family: @text[subtitle];
+        border: 2px solid white;
+        font-weight: 900;
+        transition: transform 400ms ease-in;
+        background-image: linear-gradient(-45deg, @colors[blue], @colors[yellow], @colors[pink]);
+        &:hover {
+          cursor: pointer;
+          transform: scale(1.1);
+        }
+      }
+      label {
+        margin-top: 10px;
+        font-weight: 600;
+        text-align: left;
+        color: @colors[pink];
+        &:nth-child(3) {
+          color: @colors[yellow];
+        }
+        &:nth-child(4) {
+          color: @colors[blue];
+        }
+      }
     }
   }
 }
 /* Aside */
 aside {
-  padding: 10px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 20px;
+  background-color: white;
+  border-top: 2px solid black;
+  margin-top: 20px;
   div {
+    padding-top: 10px;
     h2 {
-
+      font-family: @text[subtitle];
+      padding: 4px 4px 4px 10px;
+      font-weight: 700;
+      .round(0 20px 20px 0);
+      background-image: linear-gradient(225deg, @colors[blue], @colors[yellow], @colors[pink]);
     }
     ul {
       text-align: left;
+      padding: 10px;
       li {
         list-style: none;
+        font-weight: 500;
+        &:nth-child(2) span {
+          animation: arrows 4s forwards infinite 1s;
+        }
+        &:nth-child(3) span {
+          animation: arrows 4s forwards infinite 2s;
+        }
+        &:nth-child(4) span {
+          animation: arrows 4s forwards infinite 3s;
+        }
+        span {
+          margin-right: 4px;
+          transform: translateX(-4px);
+          position: relative;
+          display: inline-block;
+          animation: arrows 4s ease-in infinite;
+        }
       }
     }
   }
   div:nth-child(2) {
     h2 {
       text-align: right;
+      .round(20px 0 0 20px);
+      background-image: linear-gradient(-225deg, @colors[blue], @colors[yellow], @colors[pink]);
     }
     ul {
       li {
@@ -80,12 +162,12 @@ aside {
 }
 /* Footer */
 footer {
-  padding: 10px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 20px;
+  background-color: white;
   small {
-
+    padding: 10px;
   }
   small:nth-child(2) {
     text-align: right;
