@@ -1,53 +1,63 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta name="viewport" content= "width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <title>Whacky Snake</title>
-    <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville|Merienda|PT+Sans+Narrow&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/master.min.css" type="text/css">
-  </head>
-  <body>
-    <header>
-      <h1>Score: <span id="score">0</span></h1>
-      <h1>High Score: <span id="high-score">0</span></h1>
-    </header>
-    <main>
-      <canvas id="game" width="300" height="300"></canvas>
-      <section id="btn-wrapper">
-        <div>
-          <button id="play-btn" type="button">Play</button>
-          <label>Small&emsp;<input id="small" type="radio" checked name="size" value="300"></label>
-          <label>Medium&emsp;<input id="medium" type="radio" name="size" value="600"></label>
-          <label>Large&emsp;<input id="large" type="radio" name="size" value="900"></label>
-        </div>
-      </section>
-    </main>
-    <aside>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="title" property="og:title" content="Whacky Snake" />
+  <meta name="type" property="og:type" content="website" />
+  <meta name="image" property="og:image" content="https://mrcookiefries.github.io/WhackySnake/snake.png" />
+  <meta name="description" property="og:description"
+    content="Classic snake game made for the desktop. Eat apples to grow bigger, don't crash into yourself or the walls. Collect powerups to apply special effects." />
+  <meta name="author" property="og:author" content="Michael Copeland" />
+  <meta charset="utf-8">
+  <title>Whacky Snake</title>
+  <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville|Merienda|PT+Sans+Narrow&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./css/master.min.css" type="text/css">
+</head>
+
+<body>
+  <header>
+    <h1>Score: <span id="score">0</span></h1>
+    <h1>High Score: <span id="high-score">0</span></h1>
+  </header>
+  <main>
+    <canvas id="game" width="300" height="300"></canvas>
+    <section id="btn-wrapper">
       <div>
-        <h2>Directions</h2>
-        <ul>
-          <li><span>&#8680;</span>Use arrow keys or WASD to move</li>
-          <li><span>&#8680;</span>Don't run into yourself</li>
-          <li><span>&#8680;</span>Don't run into the walls</li>
-          <li><span>&#8680;</span>Eat the apples and grow bigger</li>
-        </ul>
+        <button id="play-btn" type="button">Play</button>
+        <label>Small&emsp;<input id="small" type="radio" checked name="size" value="300"></label>
+        <label>Medium&emsp;<input id="medium" type="radio" name="size" value="600"></label>
+        <label>Large&emsp;<input id="large" type="radio" name="size" value="900"></label>
       </div>
-      <div>
-        <h2>Notes</h2>
-        <ul>
-          <li><span>&#8680;</span>Apples are red</li>
-          <li><span>&#8680;</span>Speed-ups are blue</li>
-          <li><span>&#8680;</span>Slow-downs are yellow</li>
-          <li><span>&#8680;</span>Double points are pink</li>
-        </ul>
-      </div>
-    </aside>
-    <hr>
-    <footer>
-      <small>Version 1.2</small>
-      <small>Updated 10/20/19</small>
-    </footer>
-    <script src="./script.js" charset="utf-8"></script>
-  </body>
+    </section>
+  </main>
+  <aside>
+    <div>
+      <h2>Directions</h2>
+      <ul>
+        <li><span>&#8680;</span>Use arrow keys or WASD to move</li>
+        <li><span>&#8680;</span>Don't run into yourself</li>
+        <li><span>&#8680;</span>Don't run into the walls</li>
+        <li><span>&#8680;</span>Eat the apples and grow bigger</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Notes</h2>
+      <ul>
+        <li><span>&#8680;</span>Apples are red</li>
+        <li><span>&#8680;</span>Speed-ups are blue</li>
+        <li><span>&#8680;</span>Slow-downs are yellow</li>
+        <li><span>&#8680;</span>Double points are pink</li>
+      </ul>
+    </div>
+  </aside>
+  <hr>
+  <footer>
+    <small>Version 1.2</small>
+    <small>Updated 10/20/19</small>
+  </footer>
+  <script src="./script.js" charset="utf-8"></script>
+</body>
+
 </html>
